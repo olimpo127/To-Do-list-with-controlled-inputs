@@ -21,14 +21,16 @@ function ToDoApp() {
   };
 
   return (
-    <div style={{ textAlign: "center", margin: "100px", marginLeft: "200px", marginRight: "200px", borderStyle: "solid" }}>
+    <div style={{ textAlign: "center", margin: "100px", marginLeft: "150px", marginRight: "150px"}}>
       <h1>To Do App</h1>
+      <div style={{ textAlign: "center", marginLeft: "200px", marginRight: "200px", borderStyle: "solid" }}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter task"
           value={task}
           onChange={handleChange}
+          style={{display: "flex", justifyContent: "space-between", padding: "10px", width: "575px"}}
         />
       </form>
       <div>
@@ -40,10 +42,11 @@ function ToDoApp() {
             </div>
           ))
         ) : (
-          <p>No tasks, add a task</p>
+          <p style={{border: "solid"}}><strong>No tasks, add a task</strong></p>
         )}
       </div>
       <p>{tasks.length} item{tasks.length === 1 ? "" : "s"} left</p>
+    </div>
     </div>
   );
 }
