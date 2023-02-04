@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+function ToDoApp() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  const handleChange = (e) => {
+    setTask(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTasks([...tasks, task]);
+    setTask("");
+  };
+
+  const handleDelete = (index) => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: "center" }}>
+      <h1>To Do App</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter task"
+          value={task}
+          onChange={handleChange}
+        />
+        <button type="submit">Add Task</button>
+      </form>
+      <div>
+        {tasks.length > 0 ? (
+          tasks.map((t, index) => (
+            <div key={index} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid black", padding: "10px" }}>
+              <p>{t}</p>
+              <button onClick={() => handleDelete(index)}>X</button>
+            </div>
+          ))
+        ) : (
+          <p>No tasks, add a task</p>
+        )}
+      </div>
+      <p>{tasks.length} item{tasks.length === 1 ? "" : "s"} left</p>
     </div>
   );
 }
 
-export default App;
+export default ToDoApp;
