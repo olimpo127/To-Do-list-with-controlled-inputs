@@ -10,9 +10,11 @@ function ToDoApp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (task !== "") {
     setTasks([...tasks, task]);
     setTask("");
-  };
+    }
+    };
 
   const handleDelete = (index) => {
     const newTasks = [...tasks];
