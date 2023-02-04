@@ -21,7 +21,7 @@ function ToDoApp() {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", margin: "100px", marginLeft: "200px", marginRight: "200px", borderStyle: "solid" }}>
       <h1>To Do App</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -30,7 +30,6 @@ function ToDoApp() {
           value={task}
           onChange={handleChange}
         />
-        <button type="submit">Add Task</button>
       </form>
       <div>
         {tasks.length > 0 ? (
