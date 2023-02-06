@@ -44,7 +44,7 @@ function ToDoApp() {
             </div>
           ))
         ) : (
-          <p style={{border: "solid", borderColor: "grey"}}><strong>No tasks, add a task</strong></p>
+          <p style={{border: "solid", borderColor: "grey", background: "yellow"}}><strong>No tasks, add a task</strong></p>
         )}
       </div>
       <p style={{display: "flex", justifyContent:"flex-start", fontSize:" 10px", marginLeft:"3px"}}>{tasks.length} item{tasks.length === 1 ? "" : "s"} left</p>
