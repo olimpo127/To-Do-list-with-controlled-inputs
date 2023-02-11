@@ -53,4 +53,3 @@ function ToDoApp() {
   );
 }
 
-export default ToDoApp;
